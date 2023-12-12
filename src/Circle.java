@@ -5,12 +5,11 @@ public class Circle {
     // costruttore
     public Circle(){
         Point point = new Point();
-        ray = 0;
+        ray = 1;
     }
 
     public Circle(int x, int y, int ray){
-        x = center.getX();
-        y = center.getY();
+        center = new Point(x, y);
         this.ray = ray;
     }
 
@@ -43,7 +42,7 @@ public class Circle {
     // se distanza punto-cerchio = raggio => true
     public boolean belongToCircle(Point point) {
         double distance = Math.sqrt(Math.pow(point.getX() - center.getX(), 2) + Math.pow(point.getY() - center.getY(), 2));
-        if(distance == ray){
+        if(distance <= ray){
             return true;
         } else {
             return false;
